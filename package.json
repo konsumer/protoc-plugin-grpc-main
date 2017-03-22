@@ -1,0 +1,22 @@
+{
+  "name": "protoc-plugin-grpc-main",
+  "version": "0.0.1",
+  "description": "Generate main.go for grpc-gateway",
+  "scripts": {},
+  "bin": {
+    "protoc-plugin-grpc-main": "src/protoc-plugin-grpc-main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konsumer/protoc-plugin-grpc-main.git"
+  },
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/konsumer/protoc-plugin-grpc-main/issues"
+  },
+  "homepage": "https://github.com/konsumer/protoc-plugin-grpc-main#readme",
+  "dependencies": {
+    "protoc-plugin": "0.0.4"
+  }
+}

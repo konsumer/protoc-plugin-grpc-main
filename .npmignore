@@ -1,0 +1,7 @@
+Dockerfile
+.dockerignore
+.gitignore
+*.log
+node_modules
+.DS_Store
+build_gateway.sh

@@ -1,0 +1,7 @@
+#! /usr/bin/env node
+const protocPlugin = require('protoc-plugin')
+
+protocPlugin(protos => {
+  let contents = 'NOT IMPLEMENTED'
+  return [{name: 'main.go', contents}]
+})
