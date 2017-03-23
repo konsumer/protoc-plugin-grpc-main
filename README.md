@@ -32,5 +32,9 @@ docker run -v `pwd`:/usr/app -v `pwd`:`pwd` -v `pwd`/output:/output --entrypoint
 ## todo
 
 * needs lots of testing with lots of protobuf configurations
-* parse options, especially template: `--grpc-main_out=logtostderr=true,template=`pwd`/mytemplate.go:/output \`
+* parse options, especially template ie: 
+
+```
+--grpc-main_out=logtostderr=true,template=`pwd`/mytemplate.go:/output \
+```
 
