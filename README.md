@@ -15,7 +15,7 @@ protoc --plugin=`pwd`/src/protoc-gen-grpc-main --grpc-main_out=/output -I `pwd` 
 
 ## in docker
 
-I made a docker image that will build your grpc gateway & swagger file, then run it. You don't need node, protoc, or go installed to try it out.
+I made a docker container that will build your grpc gateway & swagger file, then run it. You don't need node, protoc, or go installed to try it out.
 
 ```
 docker build . -t konsumer/protoc-grpc-gateway
