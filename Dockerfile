@@ -13,9 +13,8 @@ COPY . /usr/app
 WORKDIR /usr/app
 
 RUN cd /tmp && \
-  echo 'deb http://download.opensuse.org/repositories/home:/estan:/protoc-gen-doc/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/protoc-gen-doc.list && \
   apt-get update && \
-  apt-get -y --allow-unauthenticated install unzip golang git protoc-gen-doc nodejs build-essential && \
+  apt-get -y install unzip golang && \
   git clone https://github.com/googleapis/googleapis.git /protobuf && \
   curl -L https://github.com/google/protobuf/releases/download/v3.1.0/${PROTOC_RELEASE}.zip -o protoc.zip && \
   unzip protoc.zip && \
