@@ -31,10 +31,12 @@ docker run -v `pwd`:/usr/app -v `pwd`:`pwd` -v `pwd`/output:/output --entrypoint
 
 ## todo
 
-* needs lots of testing with lots of protobuf configurations
-* parse options, especially template ie: 
+> needs lots of testing with diverse protobuf configurations
 
-```
---grpc-main_out=logtostderr=true,template=`pwd`/mytemplate.go:/output
-```
+### options I should parse
+
+* `template` - full-path to handlebars template instead of main_insecure.go
+* `grpc_host` - `host:port` that gRPC server is running on
+* `port` - port to listen to http
+* SSL keys, etc
 
