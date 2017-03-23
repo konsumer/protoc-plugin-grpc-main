@@ -35,6 +35,6 @@ docker run -v `pwd`:/usr/app -v `pwd`:`pwd` -v `pwd`/output:/output --entrypoint
 * parse options, especially template ie: 
 
 ```
---grpc-main_out=logtostderr=true,template=`pwd`/mytemplate.go:/output \
+--grpc-main_out=logtostderr=true,template=`pwd`/mytemplate.go:/output
 ```
 
