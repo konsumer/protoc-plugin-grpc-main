@@ -1,7 +1,36 @@
 #! /usr/bin/env node
+
 const protocPlugin = require('protoc-plugin')
+const read = require('fs').readFileSync
+const join = require('path').join
+const Handlebars = require('handlebars')
+const {
+    camelize,
+    underscore
+    // humanize,
+    // capitalize,
+    // dasherize,
+    // titleize,
+    // demodulize,
+    // tableize,
+    // classify,
+    // foreign_key,
+    // ordinalize
+  } = require('inflection')
+
+Handlebars.registerHelper('varName', str => camelize(str + 'Endpoint'))
+Handlebars.registerHelper('endpoint', str => underscore(str))
+Handlebars.registerHelper('serviceName', str => camelize(str) + 'Service')
+Handlebars.registerHelper('pbName', str => str.toLowerCase())
+Handlebars.registerHelper('registerName', str => 'Register' + camelize(str + 'HandlerFromEndpoint'))
+
+const tmpl = Handlebars.compile(read(join(__dirname, 'templates', 'main_insecure.go')).toString())
 
 protocPlugin(protos => {
-  let contents = 'NOT IMPLEMENTED'
-  return [{name: 'main.go', contents}]
+  const name = 'main.go'
+  const content = tmpl({protos: protos, port: '8080', grpc_host: 'localhost:50051'})
+  // const name = 'protos.json'
+  // const content = JSON.stringify(protos, null, 2)
+  return [{name, content}]
 })
+.catch(err => console.error('Error:', err))

@@ -2,7 +2,11 @@
   "name": "protoc-plugin-grpc-main",
   "version": "0.0.1",
   "description": "Generate main.go for grpc-gateway",
-  "scripts": {},
+  "scripts": {
+    "release": "npm run build && npm version patch && git push && git push --tags && docker publish konsumer/protoc-grpc-gateway && npm publish",
+    "build": "docker build . -t konsumer/protoc-grpc-gateway",
+    "test": "docker run -v `pwd`:`pwd` -v `pwd`/output:/output --rm -t konsumer/protoc-grpc-gateway -I `pwd` `pwd`/helloworld.proto"
+  },
   "bin": {
     "protoc-plugin-grpc-main": "src/protoc-plugin-grpc-main"
   },
@@ -17,6 +21,8 @@
   },
   "homepage": "https://github.com/konsumer/protoc-plugin-grpc-main#readme",
   "dependencies": {
+    "handlebars": "^4.0.6",
+    "inflection": "^1.12.0",
     "protoc-plugin": "0.0.4"
   }
 }

@@ -1,11 +1,31 @@
 # protoc-plugin-grpc-main
 
-Generate a complete grpc-gateway and run it:
+Generate a complete grpc-gateway main file
+
+## usage
+
+You must have protoc and node installed.
+
+Do all the steps listed [here](https://github.com/grpc-ecosystem/grpc-gateway#usage), up to "Write an entrypoint", then run this:
 
 ```
-mkdir out
+protoc --plugin=`pwd`/src/protoc-gen-grpc-main --grpc-main_out=/output -I `pwd` `pwd`/helloworld.proto
+```
 
+
+## in docker
+
+I made a docker image that will build your grpc gateway & swagger file, then run it. You don;t need protoc or go installed to try it out.
+
+```
 docker build . -t konsumer/protoc-grpc-gateway
 
-docker run -v `pwd`:`pwd` -v `pwd`/out:/out --rm konsumer/protoc-grpc-gateway -I `pwd` `pwd`/helloworld.proto
+docker run -v `pwd`:`pwd` -v `pwd`/output:/output --rm konsumer/protoc-grpc-gateway -I `pwd` `pwd`/helloworld.proto
 ```
+
+while developing:
+
+```
+docker run -v `pwd`:/usr/app -v `pwd`:`pwd` -v `pwd`/output:/output --entrypoint=/bin/bash --rm -it konsumer/protoc-grpc-gateway
+```
+

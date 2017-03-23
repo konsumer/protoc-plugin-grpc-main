@@ -24,6 +24,11 @@ RUN cd /tmp && \
   go get -u \
     github.com/gengo/grpc-gateway/protoc-gen-grpc-gateway \
     github.com/gengo/grpc-gateway/protoc-gen-swagger \
+    golang.org/x/net/context \
+    google.golang.org/grpc \
+    google.golang.org/grpc/codes \
+    google.golang.org/grpc/grpclog \
+    google.golang.org/grpc/metadata \
     github.com/golang/protobuf/protoc-gen-go && \
   apt-get remove -y --purge unzip git curl && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
@@ -31,4 +36,4 @@ RUN cd /tmp && \
 
 RUN npm install
 
-ENTRYPOINT /usr/app/build_gateway.sh
+ENTRYPOINT ["/usr/app/build_gateway.sh"]

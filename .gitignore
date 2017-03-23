@@ -38,3 +38,6 @@ jspm_packages
 
 .DS_Store
 
+# this is where I build when I'm testing
+output
+
