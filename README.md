@@ -29,3 +29,8 @@ while developing:
 docker run -v `pwd`:/usr/app -v `pwd`:`pwd` -v `pwd`/output:/output --entrypoint=/bin/bash --rm -it konsumer/protoc-grpc-gateway
 ```
 
+## todo
+
+* needs lots of testing with lots of protobuf configurations
+* parse options, especially template: `--grpc-main_out=logtostderr=true,template=`pwd`/mytemplate.go:/output \`
+

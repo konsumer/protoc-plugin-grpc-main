@@ -19,7 +19,7 @@ const {
   } = require('inflection')
 
 Handlebars.registerHelper('varName', str => camelize(str + 'Endpoint'))
-Handlebars.registerHelper('endpoint', str => underscore(str))
+Handlebars.registerHelper('endpointName', str => underscore(str))
 Handlebars.registerHelper('serviceName', str => camelize(str) + 'Service')
 Handlebars.registerHelper('pbName', str => str.toLowerCase())
 Handlebars.registerHelper('registerName', str => 'Register' + camelize(str + 'HandlerFromEndpoint'))

@@ -16,7 +16,7 @@ import (
 var (
   {{#each protos}}
     {{#each serviceList}}
-  {{varName name}} = flag.String("{{endpoint name}}", "{{../../grpc_host}}", "endpoint of {{name}}")
+  {{varName name}} = flag.String("{{endpointName name}}", "{{../../grpc_host}}", "endpoint of {{name}}")
     {{/each}}
   {{/each}}
   swaggerDir = flag.String("swagger_dir", ".", "path to the directory which contains swagger definitions")
